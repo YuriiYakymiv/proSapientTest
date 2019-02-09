@@ -64,7 +64,7 @@ if __name__ == '__main__':
 		tasks_results += task.result()
 
 	print('Saving data to db.')
-	db_saver = DBSaver()
+	db_saver = Database()
 	db_saver.save_rows(tasks_results, 'insert_into_passwords_table')
 	print('Saved {} passwords'.format(len(tasks_results)))
 

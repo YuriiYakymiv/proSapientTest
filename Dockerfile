@@ -1,6 +1,6 @@
 FROM python:3.7
 
-#Maintainer Yurii
+Maintainer Yurii
 
 RUN apt-get update; \
 	apt-get install -y \
