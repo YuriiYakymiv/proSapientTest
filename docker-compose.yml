@@ -1,0 +1,19 @@
+version: '3'
+services: 
+  db:
+    restart: always
+    image: postgres
+    environment:
+      POSTGRES_DB: passwords
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    container_name: ps01
+    volumes:
+      - ./data/passwords.sql:/docker-entrypoint-initdb.d/init.sql
+
+  project:
+    build: .
+    container_name: dg01
+    depends_on:
+      - db
+    tty: true

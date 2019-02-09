@@ -1,0 +1,1 @@
+0 3 * * 5 sh /home/PasswordsParser/tasks/parser_task.sh >> /home/PasswordsParser/tasks/logs/parser.log 2>&1
