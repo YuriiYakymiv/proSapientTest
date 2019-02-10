@@ -19,4 +19,8 @@ class HtmlParser(object):
 
 	def parse(self, function_name):
 		function = HtmlParser.__dict__.get(function_name, None)
-		return function(self)
+		if function:
+			return function(self)
+		else:
+			print('No function {}'.format(function_name))
+			return None

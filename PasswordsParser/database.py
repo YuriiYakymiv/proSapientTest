@@ -28,9 +28,11 @@ class Database(object):
 			.format(*values))
 
 	def save_rows(self, rows, function_name):
-		for row in rows:
-			if row:
-				function = Database.__dict__.get(function_name, None)
-				function(self, row)
-
-		self.conn.commit()
+		function = Database.__dict__.get(function_name, None)
+		if function:
+			for row in rows:
+				if row:
+					function(self, row)
+			self.conn.commit()
+		else:
+			print('No function {}.'.format(function_name))

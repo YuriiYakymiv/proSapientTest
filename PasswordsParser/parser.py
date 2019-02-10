@@ -30,7 +30,6 @@ class PasswordPageParser(object):
 		
 		async with aiohttp.ClientSession(connector=aiohttp.TCPConnector(verify_ssl=False)) as session:
 			async with session.get(url) as resp:
-
 				html = await resp.text()
 				print('Received {}'.format(url))
 		return html, resp.status
